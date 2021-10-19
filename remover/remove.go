@@ -13,15 +13,15 @@ type IslandsRemoverInferface interface {
 type IslandsRemover struct {
 }
 
-func (i *IslandsRemover) Remove(n int, m *[][]int, l *int, ip *[]string) int {
-	if *l == 0 {
+func (i *IslandsRemover) Remove(n int, m *[][]int, l *int, ip *[]string, size int) int {
+	if *l == size {
 		return 0
 	}
 
 
 	count := 0
 	for {
-		if *l == 0 || count >= n {
+		if *l == size || count >= n {
 			break
 		}
 
@@ -46,7 +46,7 @@ func (i *IslandsRemover) Remove(n int, m *[][]int, l *int, ip *[]string) int {
 		(*m)[pointX][pointY] = 0
 
 		count += 1
-		*l -= 1
+		*l += 1
 		}
 	
 	return count
