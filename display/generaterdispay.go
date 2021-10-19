@@ -30,7 +30,7 @@ func (g *GenerateDisplay) Show(islands *mapcreater.Island) {
 			break
 		}
 
-		fmt.Println("계속하시겠습니까? 그만하시려면 0, 계속하시려면 아무키나 눌러주세요.")
+		fmt.Println("계속하시겠습니까? 그만하시려면 0, 아무키나 입력해주세요.")
 		gControl := kb.Input()
 
 		if gControl == 0 {
