@@ -13,7 +13,6 @@ type GenerateDisplay struct{}
 func (g *GenerateDisplay) Show(islands *mapcreater.Island) {
 	for {
 		fmt.Println("생성할 섬의 n의 갯수를 입력하세요")
-	
 		kb:= keyboard.Keyboard{}
 		gn := kb.Input()
 
@@ -25,7 +24,7 @@ func (g *GenerateDisplay) Show(islands *mapcreater.Island) {
 		g := generater.IslandGenerater{}
 		fmt.Printf("생성된 갯수는 %v \n", g.Generate(gn, &islands.IslandsMap, &islands.IslandCount, &islands.IslanddPoint))
 
-		if islands.IslandCount == islands.MapSize {
+		if islands.IslandCount == 0 {
 			fmt.Println("모든 격자에 섬이 생성되어 더 이상 생성할 수 없습니다.")
 			break
 		}

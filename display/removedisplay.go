@@ -21,7 +21,7 @@ func (rd *RemoveDisplay) Show(islands *mapcreater.Island) {
 			rn = 20000
 		}
 
-	if rn < islands.IslandCount {
+	if rn <= islands.MapSize &&  islands.MapSize - islands.IslandCount != 0{
 		r := remover.IslandsRemover{}
 		fmt.Printf("지워진 갯수는 %v \n", r.Remove(rn, &islands.IslandsMap, &islands.IslandCount,  &islands.IslanddPoint, islands.MapSize))
 		fmt.Println("계속하시겠습니까? 그만하시려면 0, 계속하시려면 아무키나 입력해주세요.")
@@ -31,9 +31,13 @@ func (rd *RemoveDisplay) Show(islands *mapcreater.Island) {
 			break
 		}
 		continue
-	} else {
+	 } else if  islands.MapSize - islands.IslandCount == 0 {
+		fmt.Println("지울 수 있는 갯수가 없습니다.")
+		fmt.Println("지울 수 있는 갯수: ",  islands.MapSize - islands.IslandCount)
+		break
+	 }	else {
 		fmt.Println("지울 수 있는 갯수를 초과 하였습니다.")
-		fmt.Println("지울 수 있는 갯수: ", islands.IslandCount)
+		fmt.Println("지울 수 있는 갯수: ",  islands.MapSize - islands.IslandCount)
 		continue
 	}
 }
